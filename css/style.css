@@ -1,7 +1,5 @@
-/* ==========================================================================
-   RESET E CONFIGURAÇÕES GERAIS
-   ========================================================================== */
-* {
+*{
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,9 +24,6 @@ body {
     overscroll-behavior: none;
 }
 
-/* ==========================================================================
-   CONTAINER PRINCIPAL E INTERFACE
-   ========================================================================== */
 .game-container {
     display: flex;
     flex-direction: column;
@@ -54,7 +49,6 @@ h1 {
     width: 100%;
 }
 
-/* Painel de Pontuação */
 .score-panel {
     display: flex;
     justify-content: space-between;
@@ -89,9 +83,6 @@ h1 {
     text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
 }
 
-/* ==========================================================================
-   ÁREA DO CANVAS E TELAS SOBREPOSTAS
-   ========================================================================== */
 .canvas-container {
     position: relative;
     width: 400px;
@@ -109,7 +100,6 @@ canvas {
     display: block;
 }
 
-/* Overlay para Menu Inicial / Game Over */
 .overlay {
     position: absolute;
     top: 0;
@@ -143,9 +133,6 @@ canvas {
     margin-bottom: 25px;
 }
 
-/* ==========================================================================
-   BOTÕES GERAIS
-   ========================================================================== */
 .btn {
     background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
     border: none;
@@ -188,12 +175,7 @@ canvas {
     justify-content: center;
 }
 
-/* ==========================================================================
-   D-PAD (CONTROLES DE TOQUE PARA MOBILE)
-   ========================================================================== */
 .dpad {
-    /* Oculto por padrão: só aparece em dispositivos cuja entrada principal é o toque
-       (ver media query "hover: none" mais abaixo) */
     display: none;
     margin-top: 22px;
     flex-direction: column;
@@ -205,8 +187,6 @@ canvas {
     -webkit-touch-callout: none;
 }
 
-/* Detecta toque como entrada principal (celulares e tablets), não apenas tela pequena.
-   Isso evita mostrar o D-pad em notebooks/desktops com janela redimensionada. */
 @media (hover: none) and (pointer: coarse) {
     .dpad {
         display: flex;
@@ -240,7 +220,6 @@ canvas {
     transform: scale(0.94);
 }
 
-/* Ajustes responsivos */
 @media (max-width: 440px) {
     .game-container {
         width: 100%;

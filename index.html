@@ -6,22 +6,17 @@
 <meta name="theme-color" content="#0d131f">
 <title>COW ABDUCTION</title>
 
-<!-- Ícones -->
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/icon-192.png">
-
-<!-- PWA: torna o jogo instalável no navegador -->
 <link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="game-container">
 
-  <!-- Título Principal -->
   <h1>🛸 COW ABDUCTION 🐄</h1>
 
-  <!-- Painel de Pontuação -->
   <div class="score-panel">
     <div class="score-box">
       <span class="label">Vacas Abduzidas</span>
@@ -33,11 +28,9 @@
     </div>
   </div>
 
-  <!-- Área do Jogo -->
   <div class="canvas-container">
     <canvas id="gameCanvas" width="400" height="400"></canvas>
 
-    <!-- Tela de Overlay (Menu / Game Over) -->
     <div id="overlay" class="overlay">
       <div id="overlay-content">
         <h2 id="overlay-title">Preparar para a Invasão</h2>
@@ -47,7 +40,6 @@
     </div>
   </div>
 
-  <!-- Controles Touch (D-pad) — visíveis em qualquer tela, essenciais no mobile -->
   <div class="dpad" aria-label="Controles direcionais">
     <button class="dpad-btn dpad-up"    data-dir="up"    aria-label="Cima">▲</button>
     <div class="dpad-row">
@@ -57,16 +49,15 @@
     <button class="dpad-btn dpad-down"  data-dir="down"  aria-label="Baixo">▼</button>
   </div>
 
-  <!-- Controles Inferiores -->
   <div class="controls-panel">
     <button id="reset-btn" class="btn btn-secondary">Nova Missão</button>
   </div>
 
 </div>
 
-<script src="../js/script.js"></script>
+<script src="js/script.js"></script>
 <script>
-  // Registra o Service Worker (cache offline + pré-requisito para instalação como PWA)
+  
   if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
           navigator.serviceWorker.register('sw.js')

@@ -1,15 +1,9 @@
 'use strict';
 
-/**
- * ==========================================================================
- * UFO ABDUCTION - JOGO COMPLETO (INFINITE VARIANT)
- * Compatível com teclado (setas/WASD) e toque (D-pad + swipe)
- * ==========================================================================
- */
-
 /* ==========================================================================
    ELEMENTOS DA INTERFACE (DOM)
    ========================================================================== */
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const currentScoreElement = document.getElementById('current-score');
@@ -38,6 +32,7 @@ let gridHeight = canvas.height / GRID_SIZE;
 /* ==========================================================================
    ESTADO DO JOGO
    ========================================================================== */
+   
 let ufo = [];
 let cow = { x: 0, y: 0 };
 let direction = { x: 0, y: 0 };
@@ -52,6 +47,7 @@ let stars = [];
 /* ==========================================================================
    INICIALIZAÇÃO
    ========================================================================== */
+
 window.addEventListener('DOMContentLoaded', () => {
     highScoreElement.textContent = highScore;
     generateStars();
@@ -72,6 +68,7 @@ function syncGridDimensions() {
 /* ==========================================================================
    MECÂNICAS PRINCIPAIS DO JOGO
    ========================================================================== */
+
 function startMission() {
     syncGridDimensions();
     hideOverlay();
@@ -163,7 +160,6 @@ function handleCowAbducted() {
         localStorage.setItem(HIGH_SCORE_KEY, highScore);
     }
 
-    // Aceleração progressiva infinita
     if (score % SPEED_UP_EVERY === 0 && gameSpeed > MIN_SPEED) {
         gameSpeed -= SPEED_STEP;
         startGameLoop();
@@ -187,6 +183,7 @@ function triggerGameOver() {
 /* ==========================================================================
    OVERLAY (TELA DE MENU / GAME OVER)
    ========================================================================== */
+
 function showOverlay() {
     overlay.style.display = 'flex';
     setTimeout(() => { overlay.style.opacity = '1'; }, 10);
@@ -253,13 +250,12 @@ function setupKeyboardControls() {
     });
 }
 
-// D-pad na tela: funciona em qualquer dispositivo (mouse ou toque)
 function setupTouchControls() {
     dpadButtons.forEach(button => {
         const dirName = button.dataset.dir;
 
         const onPress = (e) => {
-            e.preventDefault(); // evita o "duplo disparo" de touch + click e o scroll da página
+            e.preventDefault(); 
             handleDirectionInput(dirName);
         };
 
@@ -270,7 +266,6 @@ function setupTouchControls() {
     setupSwipeControls();
 }
 
-// Swipe diretamente sobre o canvas, como alternativa ao D-pad
 function setupSwipeControls() {
     let touchStartX = 0;
     let touchStartY = 0;
@@ -299,6 +294,7 @@ function setupSwipeControls() {
 /* ==========================================================================
    ENTIDADES E FUNÇÕES AUXILIARES
    ========================================================================== */
+
 function spawnCow() {
     let validPosition = false;
 
@@ -322,6 +318,7 @@ function generateStars() {
 /* ==========================================================================
    RENDERIZAÇÃO (CANVAS)
    ========================================================================== */
+
 function draw() {
     ctx.fillStyle = '#0d131f';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
