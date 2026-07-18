@@ -62,7 +62,7 @@ Funciona no navegador (desktop e mobile) e pode ser **instalado como aplicativo 
 
 ## 🚀 Como rodar localmente
 
-Acesse aqui --> https://github.com/vinicesco/cow-abduction.git
+Acesse aqui --> https://github.com/vinicesco/cowabduction.git
 
 ---
 
